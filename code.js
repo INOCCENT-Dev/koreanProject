@@ -5,8 +5,9 @@ window.onload = function() {
   img.onload = function(){
     ctx.drawImage(img,0,0,600,400);
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
-    console.log(imageData);
-    drawPixel(ctx,imageData);
+    setInterval(function(){
+      drawPixel(ctx,imageData)
+    },33);
   };
   img.src = "img/garden.jpg"
 };
