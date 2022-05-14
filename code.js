@@ -28,9 +28,9 @@ function drawPixel(ctx,data){
 }
 
 function getRGB(x,y,data){
-  let R = data[imageData.width * 4 * y + 4 * x];
-  let G = data[imageData.width * 4 * y + 4 * x + 1];
-  let B = data[imageData.width * 4 * y + 4 * x + 2];
+  let R = data[data.width * 4 * y + 4 * x];
+  let G = data[data.width * 4 * y + 4 * x + 1];
+  let B = data[data.width * 4 * y + 4 * x + 2];
   let rgb = "rgb(" + R + "," + G + "," + B + ")"
   return rgb;
 }
