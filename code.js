@@ -21,8 +21,8 @@ function drawPixel(ctx,data){
 
   for(let x = 0; x < data.width / 20; x ++){
     for(let y = 0; y < data.height / 20; y ++){
-      ctx.fillStyle = getRGB(x*10+5,y*10+5,data);
-      ctx.arc(x*10+5,y*10+5,10,0,2*Math.PI,true);
+      ctx.fillStyle = getRGB(x*20+10,y*20+10,data);
+      ctx.arc(x*20+10,y*20+10,10,0,2*Math.PI,true);
       ctx.fill();
     }
   }
