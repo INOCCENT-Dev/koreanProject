@@ -6,7 +6,7 @@ window.onload = function() {
     ctx.drawImage(img,0,0,600,400);
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     setInterval(function(){
-      drawPixel(ctx,imageData)
+      drawPixel(ctx,imageData);
     },33);
   };
   img.src = "img/garden.jpg"
@@ -21,6 +21,7 @@ function drawPixel(ctx,data){
   for(let x = 0; x < data.width / 20; x ++){
     for(let y = 0; y < data.height / 20; y ++){
       ctx.fillStyle = getRGB(x*10+5,y*10+5,data);
+      console.log(getRGB(x*10+5,y*10+5,data));
       ctx.arc(x*10+5,y*10+5,10,0,2*Math.PI,true);
       ctx.fill();
     }
@@ -32,6 +33,6 @@ function getRGB(x,y,data){
   let G = data[data.width * 4 * y + 4 * x + 1];
   let B = data[data.width * 4 * y + 4 * x + 2];
   let rgb = "rgb(" + R + "," + G + "," + B + ")";
-  console.log(rgb);
+  
   return rgb;
 }
