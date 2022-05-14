@@ -6,12 +6,17 @@ window.onload = function() {
     ctx.drawImage(img,0,0,600,400);
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     console.log(imageData);
+    drawPixel(ctx,imageData);
   };
   img.src = "img/garden.jpg"
 };
 
 function drawPixel(ctx,data){
   ctx.beginPath();
+
+  ctx.fillStyle = 'rgb(255,255,255)';
+  ctx.fillRect(0,0,data.width,data.height);
+
   for(let x = 0; x < data.width / 20; x ++){
     for(let y = 0; y < data.height / 20; y ++){
       ctx.fillStle = getRGB(x*10,y*10,data);
