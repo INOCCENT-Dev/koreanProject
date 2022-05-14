@@ -7,7 +7,7 @@ window.onload = function() {
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     
     setInterval(function(){
-      console.log(imageData,imageData.width,imageData.height);
+      console.log(imageData);
       drawPixel(ctx,imageData);
     },33);
   };
