@@ -18,7 +18,7 @@ function drawPixel(ctx,data){
   for(let x = 0; x < data.width / 20; x ++){
     setTimeout(function(){
       ctx.fillStyle = 'rgb(255,255,255)';
-      ctx.fillRect(0,0,(x+1)*20,data.height);
+      ctx.fillRect(x*20,0,(x+1)*20,data.height);
 
       for(let y = 0; y < data.height / 20; y ++){
         ctx.beginPath();
