@@ -15,18 +15,18 @@ window.onload = function() {
 
 function drawPixel(ctx,data){
 
-  for(let x = 0; x < data.width / 20; x ++){
+  for(let x = 5; x < data.width; x += 10){
     setTimeout(function(){
       ctx.fillStyle = 'rgb(255,255,255)';
-      ctx.fillRect(x*20,0,(x+1)*20,data.height);
+      ctx.fillRect(x-5,0,x+5,data.height);
 
-      for(let y = 0; y < data.height / 20; y ++){
+      for(let y = 5; y < data.height; y += 10){
         ctx.beginPath();
         ctx.fillStyle = getRGB(x*20+10,y*20+10,data);
-        ctx.arc(x*20+10,y*20+10,10,0,2*Math.PI,true);
+        ctx.arc(x,y,5,0,2*Math.PI,true);
         ctx.fill();
       }
-    },300);
+    },500);
   }
 }
 
