@@ -3,7 +3,7 @@ window.onload = function() {
   const ctx = canvas.getContext("2d");
   const img = new Image();
   img.onload = function(){
-    ctx.drawImage(img,0,0,600,400);
+    ctx.drawImage(img,0,0,1200,600);
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     
     setInterval(function(){
