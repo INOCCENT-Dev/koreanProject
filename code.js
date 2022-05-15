@@ -13,9 +13,7 @@ window.onload = function() {
   img.src = "img/castle.jpg"
 };
 
-
 function drawPixel(ctx,data){
-
   for(let x = 10; x < data.width; x += 20){
     setTimeout(function(){
       ctx.fillStyle = 'rgb(255,255,255)';
@@ -24,7 +22,10 @@ function drawPixel(ctx,data){
       for(let y = 10; y < data.height; y += 20){
         ctx.beginPath();
         ctx.fillStyle = getRGB(x,y,data);
-        ctx.arc(x,y,9,0,2*Math.PI,true);
+        ctx.font = "19px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("A", x,y);
+        //ctx.arc(x,y,9,0,2*Math.PI,true);
         ctx.fill();
       }
     },500);
