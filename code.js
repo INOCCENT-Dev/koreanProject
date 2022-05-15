@@ -3,7 +3,7 @@ window.onload = function() {
   const ctx = canvas.getContext("2d");
   const img = new Image();
   img.onload = function(){
-    ctx.drawImage(img,0,0,1280,853);
+    ctx.drawImage(img,0,0,canvas.width,canvas.height);
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     
     setTimeout(function(){
@@ -15,15 +15,15 @@ window.onload = function() {
 
 function drawPixel(ctx,data){
 
-  for(let x = 5; x < data.width; x += 10){
+  for(let x = 10; x < data.width; x += 20){
     setTimeout(function(){
       ctx.fillStyle = 'rgb(255,255,255)';
-      ctx.fillRect(x-5,0,x+5,data.height);
+      ctx.fillRect(x-10,0,x+10,data.height);
 
-      for(let y = 5; y < data.height; y += 10){
+      for(let y = 10; y < data.height; y += 20){
         ctx.beginPath();
-        ctx.fillStyle = getRGB(x*20+10,y*20+10,data);
-        ctx.arc(x,y,5,0,2*Math.PI,true);
+        ctx.fillStyle = getRGB(x,y,data);
+        ctx.arc(x,y,9,0,2*Math.PI,true);
         ctx.fill();
       }
     },500);
