@@ -3,7 +3,7 @@ window.onload = function() {
   const ctx = canvas.getContext("2d");
   const img = new Image();
   img.onload = function(){
-    ctx.drawImage(img,0,0,1200,600);
+    ctx.drawImage(img,0,0,1280,853);
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
     
     setTimeout(function(){
@@ -26,7 +26,7 @@ function drawPixel(ctx,data){
         ctx.arc(x*20+10,y*20+10,10,0,2*Math.PI,true);
         ctx.fill();
       }
-    },100);
+    },300);
   }
 }
 
