@@ -5,13 +5,14 @@ window.onload = function() {
   img.onload = function(){
     ctx.drawImage(img,0,0,canvas.width,canvas.height);
     let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
-    
+    console.log(imageData.__proto__);
     setTimeout(function(){
       drawPixel(ctx,imageData);
     },500);
   };
   img.src = "img/castle.jpg"
 };
+
 
 function drawPixel(ctx,data){
 
@@ -35,6 +36,5 @@ function getRGB(x,y,data){
   let G = data.data[data.width * 4 * y + 4 * x + 1];
   let B = data.data[data.width * 4 * y + 4 * x + 2];
   let rgb = "rgb(" + R + "," + G + "," + B + ")";
-  console.log(rgb);
   return rgb;
 }
