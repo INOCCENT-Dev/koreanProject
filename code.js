@@ -12,7 +12,10 @@ window.onload = function() {
     canvas.addEventListener('click',function(event){
       if(isZoom){
         drawImg();
-      }else zoom(event);
+      }else{
+        zoom(event);
+        isZoom == true;
+      }
     });
 
     setInterval(function(){
