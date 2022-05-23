@@ -14,7 +14,7 @@ window.onload = function() {
         drawImg();
       }else{
         zoom(event);
-        isZoom == true;
+        isZoom = true;
       }
     });
 
