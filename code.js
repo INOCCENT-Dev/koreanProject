@@ -1,31 +1,43 @@
 window.onload = function() {
   const canvas = document.getElementById("mycanvas");
   const ctx = canvas.getContext("2d");
+  const TIME_INTERVAL = 33;
   const img = new Image();
-  //canvas.style.width = window.width +'';
-  //canvas.style.height = window.height +'';
+
+  let isZoom = false;
+
   img.onload = function(){
     ctx.drawImage(img,0,0,canvas.width,canvas.height);
 
     canvas.addEventListener('click',function(event){
-      ctx.fillStyle = 'rgb(255,255,255)';
-      ctx.fillRect(0,0,1280,640);
-      console.log(event.offsetX,event.offsetY);
-      ctx.drawImage(img,event.offsetX-100,event.offsetY-50,200,100,0,0,1280,640);
+      if(isZoom){
+        drawImg();
+      }else zoom(event);
     });
 
     setInterval(function(){
       let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
       drawPixel(ctx,imageData);
-    },33);
+    },TIME_INTERVAL);
   };
-  img.src = "img/map.svg"
+
+  img.src = "img/map.svg";
+
+  function drawImg(){
+    ctx.fillStyle = 'rgb(255,255,255)';
+    ctx.fillRect(0,0,1280,640);
+    ctx.drawImage(img,0,0,canvas.width,canvas.height);
+  }
+
+  function zoom(event){
+    ctx.fillStyle = 'rgb(255,255,255)';
+    ctx.fillRect(0,0,1280,640);
+    ctx.drawImage(img,event.offsetX-100,event.offsetY-50,200,100,0,0,canvas.width,canvas.height);
+  }
 };
 
 function drawPixel(ctx,data){
   for(let x = 10; x < data.width; x += 20){
-    //setTimeout(function(){},500);
-
     ctx.fillStyle = 'rgb(255,255,255)';
     ctx.fillRect(x-10,0,x+10,data.height);
 
