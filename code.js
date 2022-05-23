@@ -6,7 +6,6 @@ window.onload = function() {
   //canvas.style.height = window.height +'';
   img.onload = function(){
     ctx.drawImage(img,0,0,canvas.width,canvas.height);
-    let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
 
     canvas.addEventListener('click',function(event){
       ctx.fillStyle = 'rgb(255,255,255)';
@@ -16,6 +15,7 @@ window.onload = function() {
     });
 
     setInterval(function(){
+      let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
       drawPixel(ctx,imageData);
     },33);
   };
