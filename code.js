@@ -28,13 +28,13 @@ window.onload = function() {
 
   function drawImg(){
     ctx.fillStyle = 'rgb(255,255,255)';
-    ctx.fillRect(0,0,1280,640);
+    ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(img,0,0,canvas.width,canvas.height);
   }
 
   function zoom(event){
     ctx.fillStyle = 'rgb(255,255,255)';
-    ctx.fillRect(0,0,1280,640);
+    ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(img,event.offsetX-100,event.offsetY-50,200,100,0,0,canvas.width,canvas.height);
   }
 };
