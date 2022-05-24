@@ -7,7 +7,7 @@ window.onload = function() {
   let isZoom = false;
 
   img.onload = function(){
-    drawImg();
+    setTimeOut(drawImg(),500);
 
     canvas.addEventListener('click',function(event){
       if(isZoom){
