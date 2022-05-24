@@ -28,13 +28,13 @@ window.onload = function() {
   img.src = "img/map.svg";
 
   function drawImg(){
-    ctx.fillStyle = 'rgb(255,255,255)';
+    ctx.fillStyle = 'white';
     ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(img,0,0,canvas.width,canvas.height);
   }
 
   function zoom(event){
-    ctx.fillStyle = 'rgb(255,255,255)';
+    ctx.fillStyle = 'white';
     ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(img,event.offsetX-100,event.offsetY-50,200,100,0,0,canvas.width,canvas.height);
   }
@@ -42,7 +42,7 @@ window.onload = function() {
 
 function drawPixel(ctx,data){
   for(let x = 10; x < data.width; x += 20){
-    ctx.fillStyle = 'rgb(255,255,255)';
+    ctx.fillStyle = 'white';
     ctx.fillRect(x-10,0,x+10,data.height);
 
     for(let y = 10; y < data.height; y += 20){
@@ -61,4 +61,3 @@ function getRGB(x,y,data){
   let rgb = "rgb(" + R + "," + G + "," + B + ")";
   return rgb;
 }
-
