@@ -51,7 +51,7 @@ window.onload = function() {
   function zoom(event){
     ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.drawImage(img,event.offsetX-100,event.offsetY-50,200,100,0,0,canvas.width,canvas.height);
+    ctx.drawImage(img,event.offsetX-(canvas.width/8),event.offsetY-(canvas.height/8),canvas.width/4,canvas.height/4,0,0,canvas.width,canvas.height);
   }
 };
 
