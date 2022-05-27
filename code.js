@@ -5,9 +5,19 @@ window.onload = function() {
 
   let isZoom = false;
 
+  let resizeCanvas = () => {
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+  };
+
   resizeCanvas();
 
   img.onload = function(){
+    let pixelating = () => {
+      let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+      drawPixel(ctx,imageData);
+    };
+
     drawImg();
     pixelating();
 
@@ -28,11 +38,6 @@ window.onload = function() {
         isZoom = true;
       }
     });
-
-    let pixelating = () => {
-      let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
-      drawPixel(ctx,imageData);
-    };
   };
 
   img.src = "img/world.svg";
@@ -48,11 +53,6 @@ window.onload = function() {
     ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(img,event.offsetX-100,event.offsetY-50,200,100,0,0,canvas.width,canvas.height);
   }
-
-  let resizeCanvas = () => {
-    ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = window.innerHeight;
-  };
 };
 
 function drawPixel(ctx,data){
