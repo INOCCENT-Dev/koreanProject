@@ -6,6 +6,9 @@ window.onload = function() {
 
   let isZoom = false;
 
+  ctx.canvas.width = window.innerWidth;
+  ctx.canvas.height = window.innerHeight;
+
   img.onload = function(){
     setTimeout(drawImg,500);
 
