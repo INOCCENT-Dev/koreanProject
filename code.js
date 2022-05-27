@@ -1,40 +1,38 @@
 window.onload = function() {
   const canvas = document.getElementById("mycanvas");
   const ctx = canvas.getContext("2d");
-  const TIME_INTERVAL = 33;
   const img = new Image();
 
   let isZoom = false;
 
-  let resizeCanvas = () => {
-    ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = window.innerHeight;
-  };
-
   resizeCanvas();
 
   img.onload = function(){
-    setTimeout(drawImg,500);
+    drawImg();
+    pixelating();
 
     window.addEventListener('resize',function(){
       resizeCanvas();
-      drawImg()
+      drawImg();
+      pixelating();
     });
 
     canvas.addEventListener('click',function(event){
       if(isZoom){
         drawImg();
+        pixelating();
         isZoom = false;
       }else{
         zoom(event);
+        pixelating();
         isZoom = true;
       }
     });
 
-    setInterval(function(){
+    let pixelating = () => {
       let imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
       drawPixel(ctx,imageData);
-    },TIME_INTERVAL);
+    };
   };
 
   img.src = "img/world.svg";
@@ -50,6 +48,11 @@ window.onload = function() {
     ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(img,event.offsetX-100,event.offsetY-50,200,100,0,0,canvas.width,canvas.height);
   }
+
+  let resizeCanvas = () => {
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+  };
 };
 
 function drawPixel(ctx,data){
