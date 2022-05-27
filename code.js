@@ -31,13 +31,13 @@ window.onload = function() {
   img.src = "img/world.svg";
 
   function drawImg(){
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(img,0,0,canvas.width,canvas.height);
   }
 
   function zoom(event){
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.drawImage(img,event.offsetX-100,event.offsetY-50,200,100,0,0,canvas.width,canvas.height);
   }
@@ -45,7 +45,7 @@ window.onload = function() {
 
 function drawPixel(ctx,data){
   for(let x = 10; x < data.width; x += 20){
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = 'black';
     ctx.fillRect(x-10,0,x+10,data.height);
 
     for(let y = 10; y < data.height; y += 20){
