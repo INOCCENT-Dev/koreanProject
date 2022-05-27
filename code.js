@@ -25,7 +25,7 @@ window.onload = function() {
     },TIME_INTERVAL);
   };
 
-  img.src = "img/map.svg";
+  img.src = "img/world.svg";
 
   function drawImg(){
     ctx.fillStyle = 'white';
