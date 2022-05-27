@@ -6,11 +6,20 @@ window.onload = function() {
 
   let isZoom = false;
 
-  ctx.canvas.width = window.innerWidth;
-  ctx.canvas.height = window.innerHeight;
+  let resizeCanvas = () => {
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+  };
+
+  resizeCanvas();
 
   img.onload = function(){
     setTimeout(drawImg,500);
+
+    window.addEventListener('resize',function(){
+      resizeCanvas();
+      drawImg()
+    });
 
     canvas.addEventListener('click',function(event){
       if(isZoom){
